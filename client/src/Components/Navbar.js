@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Navbar, Nav } from "react-bootstrap";
 
 //Brand logo
 import BrandLogo from "../assets/img/logo.png";
 
-const Navbar = ({ fixed }) => {
+const Navbar1 = ({ fixed }) => {
   const [show, handleShow] = useState(fixed);
+  const [mobileView, setmobileView] = useState(false);
   useEffect(() => {
     if (show) {
       return;
@@ -18,70 +19,49 @@ const Navbar = ({ fixed }) => {
         }
       });
       return () => {
-        window.removeEventListener("scroll");
+        window.removeEventListener("scroll", () => {
+          handleShow(true);
+        });
       };
     }
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 1000) {
+        console.log(window.innerWidth);
+        setmobileView(true);
+      } else {
+        setmobileView(false);
+      }
+      return () => window.removeEventListener("resize");
+    });
+  }, []);
+
   return (
-    <nav
-      className={`nav navbar  navbar-expand-lg fixed-top navbar-dark ${
-        show && "bg-nav"
-      }`}
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      variant="dark"
+      {...(!mobileView ? { fixed: "top" } : { sticky: "top" })}
+      className={`NavbarCont ${show && "bg-nav"} `}
     >
-      <div className="container">
-        <a className="navbar-brand mr-auto" to="#">
-          <img src={BrandLogo} className="brand-logo" alt="Encomece" />
-        </a>
-        <button
-          className="navbar-toggle"
-          type="button"
-          data-toggle="collapse"
-          data-target="#nav-menu"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse"></div>
-        <div
-          className="collapse navbar-collapse justify-content-end bg-nav2"
-          id="nav-menu"
-        >
-          <ul className="navbar-nav text-center">
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Programs
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Team
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Services
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Contact Us
-              </Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to="/">
-                Event
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      <Navbar.Brand href="/" className="ml-5">
+        <img src={BrandLogo} className="brand-logo" alt="Encomece" />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav activeKey="/" className="ml-auto mr-5 pr-5">
+          <Nav.Link href="/about">About</Nav.Link>
+          <Nav.Link href="/programs">Programs</Nav.Link>
+          <Nav.Link href="/team">Team</Nav.Link>
+          <Nav.Link href="/services">Services</Nav.Link>
+          <Nav.Link href="/contact">Contact Us</Nav.Link>
+          <Nav.Link href="/">Event</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default Navbar1;

@@ -12,7 +12,6 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; //Bootstrap
 
 //Components
 import Navbar from "./Components/Navbar";
-import Navbar1 from "./Components/Navbar1";
 import Footer from "./Components/Footer";
 
 //Pages
@@ -25,12 +24,12 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/" exact>
-            <Navbar1 />
+            <Navbar />
             <WorkshopHome />
             <Footer />
           </Route>
           <Route path="/register" exact>
-            <Navbar1 fixed />
+            <Navbar fixed />
             <Register />
             <Footer />
           </Route>

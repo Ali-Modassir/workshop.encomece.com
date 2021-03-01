@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kaushan+Script&display=swap");
+@import url("https://use.typekit.net/yds5fqd.css");
 .bg-nav {
   background: linear-gradient(-130deg, #0c47b4, #67caf1);
 }
@@ -27,6 +29,15 @@
   background-color: #366acc;
 }
 
+.header-img {
+  margin-top: 50px;
+  width: 550px;
+}
+.headImg {
+  width: 100%;
+  object-fit: contain;
+}
+
 .rowContent {
   display: flex;
   flex-direction: row;
@@ -46,6 +57,69 @@
   width: 211px;
   font-size: 16px;
   position: relative;
+}
+.btn-exp a {
+  text-decoration: none;
+  color: black;
+}
+.btn-exp a:hover {
+  color: rgb(66, 66, 66);
+  text-decoration: none;
+}
+.event-names {
+  width: 100%;
+  padding: 5px;
+  background-color: #5f5f5d2e;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 5px 0 5px;
+  font-size: large;
+  font-weight: 500;
+}
+.eventName {
+  cursor: pointer;
+}
+
+.eventName:hover {
+  color: rgb(4, 59, 179);
+}
+.activeEvent {
+  color: rgb(4, 59, 179);
+}
+
+.eventCardContainer {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
+
+.eventCards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-width: 64%;
+}
+.eventCard {
+  border: 0.1px solid rgb(190, 188, 188);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 15px;
+}
+
+.eventTagline {
+  margin: 4%;
+}
+
+.eventDetails {
+  padding: 2px;
+  display: flex;
+  justify-content: space-around;
+}
+.eventCardFooter {
+  padding: 6%;
+}
+
+.register {
+  margin-bottom: 5%;
 }
 
 .heading {
@@ -310,6 +384,21 @@ footer h5 {
   box-shadow: 1px 2px 16px 5px lightgrey;
 }
 
+@media (max-width: 1024px) {
+  .header-img {
+    width: 480px;
+  }
+  .info p {
+    font-size: 2.1rem;
+  }
+}
+@media (max-width: 768px) {
+  .header-img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (max-width: 992px) {
   .bg-nav2 {
     background: linear-gradient(-130deg, #0c47b4, #67caf1);
@@ -367,27 +456,67 @@ footer h5 {
 }
 
 @media (max-width: 576px) {
+  .brand-logo {
+    height: 30px;
+    object-fit: contain;
+    margin-left: -60px;
+  }
+  .header-img {
+    width: 100%;
+  }
+  .tagline-title {
+    font-size: 1.8rem !important ;
+    text-align: center;
+  }
+  .description {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .btn-exp {
+    width: 100%;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .info-title {
+    font-size: 2rem;
+    text-align: center;
+    padding: 5px;
+  }
+  .trainers-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: -30px;
+  }
+  .info p {
+    font-size: 1.4rem;
+    text-align: center;
+    font-family: brush-script-std, sans-serif;
+    font-style: normal;
+  }
   .images {
     padding-top: 70px;
   }
   .images img {
-    max-width: 150px;
+    max-width: 200px;
   }
   .img2 {
     top: 5px;
     position: absolute;
     bottom: 0px;
-    left: 145px;
+    left: 135px;
   }
   .img1 {
     position: relative;
     z-index: 2;
-    left: 48px;
+    left: 0px;
   }
   .img3 {
     position: relative;
     bottom: 45px;
-    left: 138px;
+    left: 125px;
   }
   .info {
     padding-top: 10px;
@@ -447,9 +576,6 @@ footer h5 {
     position: relative;
     bottom: 45px;
     left: 130px;
-  }
-  .info p {
-    font-size: x-large;
   }
   .t1 > .t1head {
     width: 90%;
