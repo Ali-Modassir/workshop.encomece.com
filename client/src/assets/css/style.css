@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kaushan+Script&display=swap");
 @import url("https://use.typekit.net/yds5fqd.css");
+body {
+  overflow-x: hidden;
+}
 .bg-nav {
   background: linear-gradient(-130deg, #0c47b4, #67caf1);
 }
@@ -22,15 +24,15 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 50px;
   color: #fff;
   width: 100%;
-  padding: 70px 30px;
+  padding-top: 150px;
+  padding-bottom: 50px;
   background-color: #366acc;
 }
 
 .header-img {
-  margin-top: 50px;
+  margin-top: 15px;
   width: 550px;
 }
 .headImg {
@@ -490,11 +492,35 @@ footer h5 {
     text-align: center;
     margin-bottom: -30px;
   }
+  .trainee-card-title {
+    font-size: 1.3rem;
+    margin-left: 15px;
+  }
+  .trainee-card-descrip {
+    margin-left: 15px;
+  }
+
+  .t1head h4 {
+    top: 25px !important;
+  }
+  .t1 > .t1head {
+    width: 100% !important;
+  }
+  .t2 > .t1head {
+    width: 100% !important;
+  }
   .info p {
     font-size: 1.4rem;
     text-align: center;
     font-family: brush-script-std, sans-serif;
     font-style: normal;
+  }
+  .carousel-control-next {
+    display: none !important;
+  }
+
+  .carousel-control-prev {
+    display: none !important;
   }
   .images {
     padding-top: 70px;

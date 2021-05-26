@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import previewImg from "../assets/img/6461-removebg-preview.png";
 import image11 from "../assets/img/Image 11.png";
 import image12 from "../assets/img/Image 12.png";
-import BrandLogo from "../assets/img/logo.png";
 import image14 from "../assets/img/Image 14.png";
 import image5 from "../assets/img/Image 5.png";
 import Carousel from "react-bootstrap/Carousel";
@@ -24,21 +23,27 @@ const WorkshopHome = () => {
     <EventCard event="Webinar" />,
     <EventCard event="Workshop2" />,
   ]);
-  const [webinar] = useState([
+  const [workshop] = useState([
     <EventCard event="Workshop1" />,
     <EventCard event="Workshop2" />,
   ]);
-  const [workshop] = useState([<EventCard event="Webinar" />]);
+  const [webinar] = useState([<EventCard event="Webinar" />]);
   const [eventType, setEventType] = useState(allEvent);
   const [allActive, setAllActive] = useState("activeEvent");
   const [webinarActive, setWebinarActive] = useState(null);
   const [workshopActive, setWorkshopActive] = useState(null);
-  const [screenWidth, setScreenWidth] = useState(null);
 
+  //Screen-width
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
   useEffect(() => {
-    setScreenWidth(window.innerWidth);
-    console.log(screenWidth);
-  }, [window.innerWidth]);
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
 
   const setEventHandle = (type) => {
     if (type == "all") {
@@ -67,8 +72,8 @@ const WorkshopHome = () => {
         <div className="head">
           <div className="container">
             <div className="row">
-              <div className={screenWidth >= 773 ? "col-md-6 col-12 pt-5" : ""}>
-                <h1 className="pt-5 tagline-title">
+              <div className={width != 773 ? "col-md-6 col-12" : ""}>
+                <h1 className="tagline-title">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit
                 </h1>
                 <p className="pb-5 description">
@@ -170,8 +175,8 @@ const WorkshopHome = () => {
               <div className="t1">
                 <div className="t1head pl-3">
                   <img className="clip-circle" src={image5} alt="" />
-                  <h4>Lorem Ispum</h4>
-                  <p>Lorem Ispum</p>
+                  <h4 className="trainee-card-title">Lorem Ispum</h4>
+                  <p className="trainee-card-descrip">Lorem Ispum</p>
                 </div>
                 <div className="t1body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
@@ -185,8 +190,8 @@ const WorkshopHome = () => {
               <div className="t2">
                 <div className="t1head pl-3">
                   <img className="clip-circle" src={image5} alt="" />
-                  <h4>Lorem Ispum</h4>
-                  <p>Lorem Ispum</p>
+                  <h4 className="trainee-card-title">Lorem Ispum</h4>
+                  <p className="trainee-card-descrip">Lorem Ispum</p>
                 </div>
                 <div className="t2body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
